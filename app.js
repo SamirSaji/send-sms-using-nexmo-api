@@ -6,8 +6,8 @@ const socketio = require('socket.io');
 
 // Init Nexmo
 const nexmo = new Nexmo({
-    apiKey: 'YOURAPIKEY',
-    apiSecret: 'YOURAPISECRET'
+    apiKey: 'yourapikey',
+    apiSecret: 'yourapisecret'
 }, { debug: true });
 
 // Init app
@@ -31,12 +31,9 @@ app.get('/', (req, res) => {
 
 // Catch form submit
 app.post('/', (req, res) => {
-    // res.send(req.body);
-    // console.log(req.body);
     const { number, text } = req.body;
-
     nexmo.message.sendSms(
-        'YOURVURTUALNUMBER', number, text, { type: 'unicode' },
+        'yourvirtualnumberofnexmo', number, text, { type: 'unicode' },
         (err, responseData) => {
             if (err) {
                 console.log(err);
